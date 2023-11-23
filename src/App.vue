@@ -30,10 +30,12 @@ const countStore = useCounterStore()
     <p>{{ countStore.count }} - {{ countStore.doubleCount }}</p>
     <el-button type="primary" round @click="countStore.increment">点击我加加</el-button>
   </div>
+  <router-view />
 </template>
 
 <style scoped>
 * {
-  margin: 10px;
+  margin: 10px auto;
+
 }
 </style>
