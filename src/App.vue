@@ -17,20 +17,24 @@ const countStore = useCounterStore()
 </script>
 
 <template>
-  <h2>I am App</h2>
   <div>
-    <el-button type="danger" @click="router.push('/home')">跳转到首页</el-button>
-    <el-button type="danger" @click="router.go(1)">跳转到表业</el-button>
-    <el-button type="danger" @click="goList">跟我走吧</el-button>
-
-    <p>{{ userStore.token }}</p>
-    <el-button type="success" round @click="userStore.setToken('hello')">登录 </el-button>
-    <el-button type="success" round @click="userStore.removeToken">退出登录 </el-button>
-    <hr />
-    <p>{{ countStore.count }} - {{ countStore.doubleCount }}</p>
-    <el-button type="primary" round @click="countStore.increment">点击我加加</el-button>
+    <router-view />
   </div>
-  <router-view />
+
+<!-- 测试代码 -->
+<!--  <h2>I am App</h2>-->
+<!--  <div>-->
+<!--    <el-button type="danger" @click="router.push('/home')">跳转到首页</el-button>-->
+<!--    <el-button type="danger" @click="router.go(1)">跳转到表业</el-button>-->
+<!--    <el-button type="danger" @click="goList">跟我走吧</el-button>-->
+
+<!--    <p>{{ userStore.token }}</p>-->
+<!--    <el-button type="success" round @click="userStore.setToken('hello')">登录 </el-button>-->
+<!--    <el-button type="success" round @click="userStore.removeToken">退出登录 </el-button>-->
+<!--    <hr />-->
+<!--    <p>{{ countStore.count }} - {{ countStore.doubleCount }}</p>-->
+<!--    <el-button type="primary" round @click="countStore.increment">点击我加加</el-button>-->
+<!--  </div>-->
 </template>
 
 <style scoped>

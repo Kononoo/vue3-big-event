@@ -6,7 +6,7 @@ import router from '@/router'
 const baseURL = 'http://big-event-vue-api-t.itheima.net'
 const httpInstance = axios.create({
   baseURL: baseURL,
-  timeout: 3000,    // 超时时间2.5s
+  timeout: 3000,    // 超时时间3s
 });
 
 // 添加请求拦截器

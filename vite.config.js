@@ -14,6 +14,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  // 配置自动导入
   plugins: [
     vue(),
     AutoImport({
