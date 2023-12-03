@@ -17,3 +17,7 @@ export const userRegisterAPI = ({username, password, repassword}) => {
 export const userLoginAPI = ({username, password}) => {
   return httpInstance.post('/api/login', {username, password})
 }
+
+export const userGetInfoAPI = () => {
+  return  httpInstance.get('/my/userinfo')
+}

@@ -17,10 +17,7 @@ const countStore = useCounterStore()
 </script>
 
 <template>
-  <div>
     <router-view />
-  </div>
-
 <!-- 测试代码 -->
 <!--  <h2>I am App</h2>-->
 <!--  <div>-->
