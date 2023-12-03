@@ -53,3 +53,4 @@ httpInstance.interceptors.response.use(res => {
 })
 
 export default httpInstance
+export { baseURL }

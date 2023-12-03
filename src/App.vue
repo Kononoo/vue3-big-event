@@ -4,6 +4,7 @@
 import { useRouter, useRoute } from 'vue-router'
 import { useUserStore } from '@/stores/modules/user'
 import { useCounterStore } from '@/stores/modules/counter'
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 const router = useRouter()
 const route = useRoute()
@@ -16,8 +17,11 @@ const userStore = useUserStore()
 const countStore = useCounterStore()
 </script>
 
+<!--使用config-provide全局配置，中文-->
 <template>
+  <el-config-provider :locale="zhCn">
     <router-view />
+  </el-config-provider>
 <!-- 测试代码 -->
 <!--  <h2>I am App</h2>-->
 <!--  <div>-->
