@@ -33,7 +33,7 @@ httpInstance.interceptors.response.use(res => {
   // 统一错误提示
   ElMessage({
     type: "error",
-    message: e.response.data.message || '服务异常'
+    message: e.response.data?.message || '服务异常'
   })
   // 401token失效处理
   // 1 清除本地数据   2 跳转登录页

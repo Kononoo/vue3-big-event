@@ -18,7 +18,7 @@ const defaultForm = ref({
   content: '',
   state: ''
 })
-const formModel = ref({ ...defaultForm })
+const formModel = ref(defaultForm.value)
 
 // 图片上传功能
 const formRef = ref()
@@ -35,8 +35,8 @@ const onPublish = async (state) => {
   formModel.value.state = state
   // 将普通对象 => formData 对象
   const formData = new FormData()
-  for (let key in formModel) {
-    formData.append(formModel.value[key])
+  for (let key in formModel.value) {
+    formData.append(key, formModel.value[key])
   }
 
   // 发送请求 1 编辑操作  2 添加操作
@@ -64,8 +64,8 @@ const onPublish = async (state) => {
 // 打开抽屉方法，暴露出去由父组件控制
 const editorRef = ref()
 const open = async (row) => {
-  console.log(row)
-  visibleDrawer.value = true
+  visibleDrawer.value = true  // 显示抽屉
+  // 获取编辑的数据，进行回显
   if (row.id) {
     const res = await artGetDetailAPI(row.id)
     formModel.value = res.data.data
@@ -78,7 +78,7 @@ const open = async (row) => {
     // 分别重置表单数据、文本编辑器数据
     formModel.value = { ...defaultForm }
     imgUrl.value = ''
-    editorRef.value.setHTML('')
+    editorRef.value.setHTML("")
   }
 }
 
@@ -102,7 +102,7 @@ const imageUrlToFileObject = async (imageUrl, filename) => {
   }
 }
 
-// defineExpose({open})
+defineExpose({open})
 </script>
 
 <template>
@@ -113,9 +113,9 @@ const imageUrlToFileObject = async (imageUrl, filename) => {
     size="50%"
   >
     <!-- 文章表单 -->
-    <el-form :model="formModel" ref="formRef" label-width="100">
+    <el-form :model="formModel" ref="formRef" label-width="100px">
       <el-form-item label="文章标题" prop="title">
-        <el-input v-model="formModel" placeholder="请输入标题" />
+        <el-input v-model="formModel.title" placeholder="请输入标题" />
       </el-form-item>
       <el-form-item label="文章分类" prop="cate_id">
         <ChannelSelect v-model:cateId="formModel.cate_id" width="100%" />

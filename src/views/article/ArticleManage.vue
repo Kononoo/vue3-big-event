@@ -6,7 +6,7 @@ import PageContainer from '@/components/PageContainer.vue'
 import ChannelSelect from '@/views/article/components/ChannelSelect.vue'
 import { formatTime } from '@/utils/format'
 import ArticleEdit from "@/views/article/components/ArticleEdit.vue";
-import { ElMessage, ElMessageBox } from "element-plus";
+// import { ElMessage, ElMessageBox } from "element-plus";
 
 // 文章列表  总条数
 const articleList = ref([])
@@ -28,9 +28,7 @@ const getArticleList = async () => {
   total.value = res.data.total
   loading.value = false
 }
-onMounted(() => {
-  getArticleList()
-})
+getArticleList()
 
 // 分页管理
 const onSizeChange = (pageSize) => {
@@ -45,8 +43,10 @@ const onCurrentChange = (currentPage) => {
 
 // 表单处理
 const onSearch = () => {
-  params.value.pagenum = 1
-  getArticleList()
+  if (params.value.cate_id !== '' || params.value.state !== '') {
+    params.value.pagenum = 1
+    getArticleList()
+  }
 }
 const onReset = () => {
   params.value.cate_id = ''
@@ -80,7 +80,7 @@ const onDeleteArticle = async (row) => {
 
 // 添加或编辑文章成功后的回调
 const onSuccess = (type) => {
-  if (type === 'add') {
+  if (type === 'add' && total.value > params.value.pagesize) {
     const lastPage = Math.ceil((total.value + 1) / params.value.pagesize)
     params.value.pagenum = lastPage
   }

@@ -54,8 +54,8 @@ export const artPublishAPI = (data) => {
 export const artGetDetailAPI = (id) => {
   return httpInstance({
     url: '/my/article/info',
-    method: "GET",
-    params: id
+    method: 'GET',
+    params: { id }
   })
 }
 
@@ -63,8 +63,8 @@ export const artGetDetailAPI = (id) => {
 export const artUpdateAPI = (data) => {
   return httpInstance({
     url: '/my/article/info',
-    method: "GET",
-    data
+    method: "PUT",
+    data: data
   })
 }
 
@@ -73,6 +73,6 @@ export const artDeleteAPI = (id) => {
   return httpInstance({
     url: '/my/article/info',
     method: 'DELETE',
-    params: id
+    params: { id }
   })
 }
