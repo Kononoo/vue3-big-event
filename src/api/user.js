@@ -30,3 +30,12 @@ export const userUpdateInfoAPI = (data) => {
     data
   })
 }
+
+export const userUpdateAvatarAPI = (avatar) => {
+  // return httpInstance({
+  //   url: '/my/update/avatar',
+  //   method: 'PATCH',
+  //   data: avatar
+  // })
+  return  httpInstance.patch('/my/update/avatar', { avatar })
+}
