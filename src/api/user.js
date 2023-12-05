@@ -39,3 +39,12 @@ export const userUpdateAvatarAPI = (avatar) => {
   // })
   return  httpInstance.patch('/my/update/avatar', { avatar })
 }
+
+export const userUpdatePasswordAPI = (data) => {
+  return httpInstance({
+    url: '/my/updatepwd',
+    method: 'PATCH',
+    data
+  })
+  // return httpInstance.patch('/my/updatepwd', { data })
+}
