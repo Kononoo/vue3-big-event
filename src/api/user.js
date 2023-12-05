@@ -18,6 +18,15 @@ export const userLoginAPI = ({username, password}) => {
   return httpInstance.post('/api/login', {username, password})
 }
 
+
 export const userGetInfoAPI = () => {
   return  httpInstance.get('/my/userinfo')
+}
+
+export const userUpdateInfoAPI = (data) => {
+  return httpInstance({
+    url: '/my/userinfo',
+    method: 'PUT',
+    data
+  })
 }
